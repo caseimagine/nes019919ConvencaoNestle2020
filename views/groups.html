@@ -1,0 +1,45 @@
+<div class="v-container">
+    <div class="v-container-inner" style="background-image: url('../images/cover.29e96b00.jpg'); background-size: cover; background-position: bottom center;">
+
+    <div class="wrapper">
+      <div class="header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+              <div class="card card-signup">
+                <div class="header header-primary text-center">
+                  <h1 class="text-center">
+                    <img class="img-responsive" style="display: inline-block" src="images/logo-campanha.3f4d151d.png"
+                      alt="{{appTitle}}" />
+                  </h1>
+                  <br />
+                  <h4>Selecione seu grupo</h4>
+                </div>
+                <form name="userForm" ng-submit="submitForm(userForm.$valid, email)" novalidate>
+                  <div class="content content-grupos">
+                    <a ng-repeat="(key, value)  in groups.grupos" href="#!/?grupo={{key}}"
+                      ng-click="groups.defineSite(key)" class="btn btn-default btn-block">{{value.nome}}</a>
+                  </div>
+
+                  <div class="footer text-center">
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <!-- <div ng-include="'/views/footer.html'"></div> -->
+                        <div class="alert alert-primary text-center" role="alert" style="margin-bottom: 0;">
+                            <p><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Em caso de
+                              dúvidas, entre em contato pelo telefone {{grupo.telefone}} ou pelo
+                              e-mail <a href="mailto:{{grupo.email}}">{{grupo.email}}</a>.</p>
+                          </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

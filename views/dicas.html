@@ -1,0 +1,19 @@
+<p><span ng-repeat="(key, value) in dicasData | groupBy: 'categoria'">
+     <a data-ng-click="sortByCategory(key)">{{key}}</a>
+</span></p>
+
+<div class="form-group">
+
+</div>
+    <form id="searchForm">
+        <input type="text" class="form-control" id="searchBox" placeholder="{{'Busca' | translate}}" data-ng-model="searchTxt" data-ng-model-options="{debounce : 600}" />
+        <i class="icon-search"></i>
+    </form>
+
+
+
+<div class="row dynamic-grid" angular-grid="dicasDataFiltered" ag-refresh-on-img-load="true">
+    <div class="col-xs-12 col-sm-6 col-md-4 grid"  data-ng-repeat="dica in dicasDataFiltered" >
+        {{dica.titulo}}
+    </div>
+</div>
