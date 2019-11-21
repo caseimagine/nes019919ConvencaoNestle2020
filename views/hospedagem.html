@@ -17,7 +17,7 @@
                 <pre>{{option | json }}</pre>
                 <label>
                     <input type="radio" id="" name="{{'tipo-de-quarto-' + option.IdHotel}}"
-                        ng-model="hospedagem.tipoDeQuarto" ng-value="option" ng-required="true" ng-change="checkRoommatesLimits()"> {{option.Nome}}
+                        ng-model="hospedagem.tipoDeQuarto" ng-value="option" ng-required="true" ng-change="checkRoommatesLimits()" ng-disabled="option.QtdeAPS === 0"> {{option.Nome}}
                 </label>
             </div>
         </div>
