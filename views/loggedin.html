@@ -10,7 +10,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#!/profile">
-                <img class="img-responsive" src="images/logo-top.5b7a047d.svg" alt="{{appTitle}}" />
+                <img class="img-responsive" src="images/logo-top.32449121.jpg" alt="{{appTitle}}" />
             </a>
         </div>
 
@@ -31,7 +31,7 @@
                 <li>
                     <a href="#!/transporte">(3) Transporte</a>
                 </li>
-                <li>
+                <li ng-if="rootScopeUsuario.TransporteDefinido === 'Voo'">
                     <a href="#!/upload">(4) Upload Passagem Aérea</a>
                 </li>
                 <li>
