@@ -8,6 +8,9 @@
 <div ng-if="!temQuartosDisponiveis(hoteis)">
   <p>Não há mais quartos disponíveis</p>
 </div>
+
+<!-- listagem de quem vc definiu como acompanhante -->
+
 <div ng-if="rootScopeUsuario.ContagemAcompanhantes > 0">
   <p>Seu{{acompanhantes.length > 1 ? 's' : ''}} colega{{acompanhantes.length > 1 ? 's' : ''}} de quarto já {{acompanhantes.length > 1 ? 'foram' : 'foi'}} definido{{acompanhantes.length > 1 ? 's' : ''}}</p>
   <ul>
@@ -17,6 +20,16 @@
   </ul>
 </div>
 
+<!-- listagem de quem te definiu como acompanhante -->
+
+<div ng-if="rootScopeUsuario.Titular > 0">
+  <p>Seu{{acompanhantes.length > 1 ? 's' : ''}} colega{{acompanhantes.length > 1 ? 's' : ''}} de quarto já {{acompanhantes.length > 1 ? 'foram' : 'foi'}} definido{{acompanhantes.length > 1 ? 's' : ''}}</p>
+  <ul>
+    <li ng-repeat="acompanhante in acompanhantes">
+      {{acompanhante.Nome}} ( <a href="mailto:{{acompanhante.Email}}">{{acompanhante.Email}}</a> )
+    </li>
+  </ul>
+</div>
 
 <button
   ng-if="!temQuartosDisponiveis(hoteis) || rootScopeUsuario.ContagemAcompanhantes > 0 || ehSingle(rootScopeUsuario.Order) || reservasFeitas"
