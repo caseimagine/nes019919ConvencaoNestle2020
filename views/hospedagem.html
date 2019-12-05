@@ -1,6 +1,6 @@
-<loading ng-if="!acompanhantes && !reservasFeitas"></loading>
+<loading ng-if="acompanhantes === '' && reservasFeitas === ''"></loading>
 
-<div ng-if="acompanhantes && reservasFeitas">
+<div ng-if="acompanhantes !== '' && reservasFeitas !== ''">
   <h2>Hospedagem</h2>
   <div ng-if="ehSingle(rootScopeUsuario.Order)">
     <p>Sua hospedagem é do tipo "single" (cama única)</p>
@@ -39,8 +39,9 @@
     </ul>
   </div>
 
+
   <button
-    ng-if="!temQuartosDisponiveis(hoteis) || rootScopeUsuario.ContagemAcompanhantes > 0 || ehSingle(rootScopeUsuario.Order) || reservasFeitas || ehPassante(rootScopeUsuario.Order)"
+    ng-if="rootScopeUsuario.ContagemAcompanhantes > 0 || ehSingle(rootScopeUsuario.Order) || reservasFeitas.length > 0 || ehPassante(rootScopeUsuario.Order)"
     class="btn btn-primary" ng-click="proximoPasso()">Próximo passo</button>
 
   <form name="userForm" ng-submit="submitForm(userForm.$valid)"
