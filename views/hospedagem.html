@@ -61,9 +61,11 @@
         </div>
       </div> -->
 
+      <p>Você estará num quarto do tipo {{ hospedagemObj.tipoDeQuarto.CategoriaTitulo }}.</p>
+
       <!-- formulario de busca de roommate -->
 
-      <h3 ng-if="hospedagemObj.tipoDeQuarto && podeBuscar()">Buscar e adicionar colegas de quarto</h3>
+      <h3 ng-if="hospedagemObj.tipoDeQuarto && podeBuscar()">Buscar e adicionar colega de quarto</h3>
       <div class="form-group" ng-if="hospedagemObj.tipoDeQuarto && podeBuscar()">
         <label for="{{'tipo-de-quarto-' + option.IdHotel}}">Adicionar colega de quarto</label>
         <div class="input-group">
