@@ -1,6 +1,6 @@
-<loading ng-if="acompanhantes === '' && reservasFeitas === ''"></loading>
+<loading ng-if="(acompanhantes === '' && reservasFeitas === '') || hospedagemObj.tipoDeQuarto.CategoriaTitulo == ''"></loading>
 
-<div ng-if="acompanhantes !== '' && reservasFeitas !== ''">
+<div ng-if="acompanhantes !== '' && reservasFeitas !== '' && hospedagemObj.tipoDeQuarto.CategoriaTitulo != ''">
   <h2>Hospedagem</h2>
   <div ng-if="ehSingle(rootScopeUsuario.Order)">
     <p>Sua hospedagem é do tipo "single" (cama única)</p>
