@@ -11,6 +11,9 @@
   <div ng-if="reservasFeitas">
     <p><span>Seu quarto já foi definido</span>: <strong>{{reservasFeitas.Tipo | tipoDeQuarto}}</strong></p>
   </div>
+  <div ng-if="naoQuerEscolher() && !reservasFeitas">
+    <p><span>Faremos a escolha de colega de quarto por você.</span></p>
+  </div>
   <!-- <div ng-if="!temQuartosDisponiveis(hoteis)">
     <p>Não há mais quartos disponíveis</p>
   </div> -->
@@ -45,7 +48,7 @@
     class="btn btn-primary" ng-click="proximoPasso()">Próximo passo</button>
 
   <form name="userForm" ng-submit="submitForm(userForm.$valid)"
-    ng-if="ehSingle(rootScopeUsuario.Order) === false && ehPassante(rootScopeUsuario.Order) === false && rootScopeUsuario.ContagemAcompanhantes === 0  && !reservasFeitas">
+    ng-if="ehSingle(rootScopeUsuario.Order) === false && ehPassante(rootScopeUsuario.Order) === false && rootScopeUsuario.ContagemAcompanhantes === 0  && !reservasFeitas && naoQuerEscolher() == false">
     <fieldset>
 
       <!-- select de tipo de quarto (hospedagem) -->
@@ -127,5 +130,8 @@
       tanto para você quanto para seus colegas de quarto.</div>
 
     <button type="submit" class="btn btn-primary" ng-disabled="submitDisabled(userForm)">Enviar</button>
+    <h3>Caso não queira escolher um colega de quarto, clique no botão abaixo</h3>
+    <p>A organização do evento fará a escolha por você.</p>
+    <button type="button" class="btn btn-warning" ng-click="naoEscolher()">Não tenho um colega de quarto, por favor escolham por mim</button>
   </form>
 </div>
