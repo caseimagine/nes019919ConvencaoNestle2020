@@ -64,14 +64,20 @@
 
             <!-- campos de booleano -->
 
-            <div class="radio" ng-if="(campo.type === 'boolean')">
+            <div class="radio" ng-if="(campo.type === 'boolean' && campo.options.length > 0) " ng-repeat="option in campo.options">
+                <label>
+                    <input type="radio" id="{{atribuido[0].atribuicao + campo.key}}" name="{{atribuido[0].atribuicao + campo.key}}"
+                        ng-model="campo.value" ng-value="(option.value == 'true' ? true : false)" ng-required="campo.obrigatorio"> {{option.name}}</label>
+            </div>
+
+            <div class="radio" ng-if="(campo.type === 'boolean' && campo.options.length == 0)">
                 <label>
                     <input type="radio" id="{{atribuido[0].atribuicao + campo.key}}" name="{{atribuido[0].atribuicao + campo.key}}"
                         ng-model="campo.value" ng-value="false" ng-required="campo.obrigatorio"> {{'Não' | translate}}
                 </label>
             </div>
 
-            <div class="radio" ng-if="(campo.type === 'boolean')">
+            <div class="radio" ng-if="(campo.type === 'boolean' && campo.options.length == 0)">
                 <label>
                     <input type="radio" id="{{atribuido[0].atribuicao + campo.key}}" name="{{atribuido[0].atribuicao + campo.key}}"
                         ng-model="campo.value" ng-value="true" ng-required="campo.obrigatorio"> {{'Sim' | translate}}
