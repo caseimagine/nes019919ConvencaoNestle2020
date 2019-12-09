@@ -70,12 +70,12 @@
 
       <h3 ng-if="hospedagemObj.tipoDeQuarto && podeBuscar()">Buscar e adicionar colega de quarto</h3>
       <div class="form-group" ng-if="hospedagemObj.tipoDeQuarto && podeBuscar()">
-        <label for="{{'tipo-de-quarto-' + option.IdHotel}}">Adicionar colega de quarto</label>
+        <p>Digite o SAP e clique na lupa para buscar</p>
         <div class="input-group">
           <input type="text" class="form-control" ng-model="roommateSap"
             placeholder="Preencha aqui o SAP do seu colega de quarto" my-enter="searchRoommate(roommateSap)">
           <span class="input-group-btn">
-            <button class="btn btn-link" type="button" ng-click="searchRoommate(roommateSap)"><i
+            <button class="btn btn-warning" type="button" ng-click="searchRoommate(roommateSap)"><i
                 class="glyphicon glyphicon-search" ng-if="!searchingRoommate" aria-hidden="true"></i><i
                 class="glyphicon glyphicon-refresh fa-spin" aria-hidden="true" ng-if="searchingRoommate"></i></button>
           </span>
