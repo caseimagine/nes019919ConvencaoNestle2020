@@ -64,7 +64,7 @@
         </div>
       </div> -->
 
-      <p>Você estará num quarto do tipo {{ hospedagemObj.tipoDeQuarto.CategoriaTitulo }}.</p>
+      <p>Você estará num quarto {{ hospedagemObj.tipoDeQuarto.CategoriaTitulo }}.</p>
 
       <!-- formulario de busca de roommate -->
 
@@ -102,7 +102,7 @@
             </div>
             <div class="col-md-6">
               <div class="btn-group pull-right" role="group">
-                <button type="button" class="btn btn-primary" ng-click="addRoommate(acompanhante)">Escolher</button>
+                <button type="button" class="btn btn-warning" ng-click="addRoommate(acompanhante)">Confirmar</button>
               </div>
             </div>
           </div>
@@ -118,7 +118,7 @@
         <div class="well clearfix">
           <p class="pull-left h4"><strong>{{acompanhante.Nome.toUpperCase()}}</strong></p>
           <div class="btn-group pull-right" role="group">
-            <button type="button" class="btn btn-warning" ng-click="removeRoommate(acompanhante)">Cancelar</button>
+            <button type="button" class="btn btn-danger" ng-click="removeRoommate(acompanhante)">Cancelar</button>
           </div>
         </div>
       </div>
@@ -130,7 +130,7 @@
       tanto para você quanto para seus colegas de quarto.</div>
 
     <button type="submit" class="btn btn-primary" ng-disabled="submitDisabled(userForm)">Enviar</button>
-    <h3>Caso não queira escolher um colega de quarto, clique no botão abaixo</h3>
+    <h3>Caso não tenha um colega de quarto, clique no botão abaixo</h3>
     <p>A organização do evento fará a escolha por você.</p>
     <button type="button" class="btn btn-warning" ng-click="naoEscolher()">Não tenho um colega de quarto, por favor escolham por mim</button>
   </form>

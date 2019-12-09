@@ -4,18 +4,18 @@
         <h3>Como será seu transporte para o evento?</h3>
 
         <div class="form-group">
-            <div class="radio">
+            <!-- <div class="radio">
                 <label>
                     <input type="radio" name="Transporte" ng-model="respostas.Transporte" ng-value="6" required>Carro da Empresa</label>
-            </div>
+            </div> -->
             <div class="radio">
                 <label>
-                    <input type="radio" name="Transporte" ng-model="respostas.Transporte" ng-value="3" required>Carro/Moto Particular</label>
+                    <input type="radio" name="Transporte" ng-model="respostas.Transporte" ng-value="3" required>Carro/Moto</label>
             </div>
-            <div class="radio">
+            <!-- <div class="radio">
                 <label>
                     <input type="radio" name="Transporte" ng-model="respostas.Transporte" ng-value="4" required>Carona</label>
-            </div>
+            </div> -->
             <div class="radio">
                 <label>
                     <input type="radio" name="Transporte" ng-model="respostas.Transporte" ng-value="2" required>Transfer Sede Nestlé SP</label>
@@ -24,15 +24,15 @@
                 <label>
                     <input type="radio" name="Transporte" ng-model="respostas.Transporte" ng-value="1" required>Aéreo</label>
             </div>
-            <div class="radio">
+            <!-- <div class="radio">
                 <label>
                     <input type="radio" name="Transporte" ng-model="respostas.Transporte" ng-value="5" required>Taxi/Uber</label>
-            </div>
+            </div> -->
             <span class="material-icons form-control-feedback" ng-if="respostas.Transporte.$invalid">clear</span>
 
         </div>
 
-        <h3 ng-if="necessarioDetalhesCarro()">Qual a placa do carro?</h3>
+        <h3 ng-if="necessarioDetalhesCarro()">Qual a placa do carro/moto?</h3>
 
         <div class="form-group" ng-if="necessarioDetalhesCarro()">
             <input type="text" class="form-control" ng-model="respostas.Placa" ng-required="necessarioDetalhesCarro()"/>
