@@ -1,6 +1,6 @@
-<loading ng-if="(acompanhantes === '' && reservasFeitas === '') || (hospedagemObj.tipoDeQuarto.CategoriaTitulo == '' && ehPassante(rootScopeUsuario.Order) == false)"></loading>
+<loading ng-if="(acompanhantes === '' && reservasFeitas === '')"></loading>
 
-<div ng-if="acompanhantes !== '' && reservasFeitas !== '' && (hospedagemObj.tipoDeQuarto.CategoriaTitulo != '' || ehPassante(rootScopeUsuario.Order) == true)">
+<div ng-show="(acompanhantes !== '' && reservasFeitas !== '') || ehPassante(rootScopeUsuario.Order) == true">
   <h2>Hospedagem</h2>
   <div ng-if="ehSingle(rootScopeUsuario.Order)">
     <p>Sua hospedagem é do tipo "single" (cama única)</p>
@@ -14,9 +14,9 @@
   <div ng-if="naoQuerEscolher() && !reservasFeitas">
     <p><span>Faremos a escolha de colega de quarto por você.</span></p>
   </div>
-  <!-- <div ng-if="!temQuartosDisponiveis(hoteis)">
-    <p>Não há mais quartos disponíveis</p>
-  </div> -->
+  <div ng-if="!temQuartosDisponiveis(hoteis)">
+    <p>Error 404 - NHd</p>
+  </div>
 
   <!-- listagem de quem vc definiu como acompanhante -->
 
@@ -48,28 +48,28 @@
     class="btn btn-primary" ng-click="proximoPasso()">Próximo passo</button>
 
   <form name="userForm" ng-submit="submitForm(userForm.$valid)"
-    ng-if="ehSingle(rootScopeUsuario.Order) === false && ehPassante(rootScopeUsuario.Order) === false && rootScopeUsuario.ContagemAcompanhantes === 0  && !reservasFeitas && naoQuerEscolher() == false">
+    ng-show="ehSingle(rootScopeUsuario.Order) === false && ehPassante(rootScopeUsuario.Order) === false && rootScopeUsuario.ContagemAcompanhantes === 0  && !reservasFeitas && naoQuerEscolher() == false && temQuartosDisponiveis()">
     <fieldset>
 
       <!-- select de tipo de quarto (hospedagem) -->
 
-      <!-- <div class="form-group">
+      <div class="form-group">
         <label for="{{'tipo-de-quarto-' + option.IdHotel}}">Escolha o tipo de quarto </label>
-        <div class="radio" ng-repeat="option in hoteis" ng-if="option.QtdeAPS > 0">
+        <div class="radio" ng-repeat="option in hoteis">
           <label>
-            <input type="radio" id="" name="{{'tipo-de-quarto-' + option.IdHotel}}" ng-model="hospedagem.tipoDeQuarto"
+            <input type="radio" name="{{'tipo-de-quarto-' + option.IdHotel}}" ng-model="hospedagemObj.tipoDeQuarto"
               ng-value="option" ng-required="true" ng-change="checkRoommatesLimits()">
-            {{option.Nome}} - {{option.QtdeAPS}}
+            {{option.Nome}}
           </label>
         </div>
-      </div> -->
+      </div>
 
-      <p>Você estará num quarto {{ hospedagemObj.tipoDeQuarto.CategoriaTitulo }}.</p>
+      <!-- <p>Você estará num quarto {{ hospedagemObj.tipoDeQuarto.CategoriaTitulo }}.</p> -->
 
       <!-- formulario de busca de roommate -->
 
-      <h3 ng-if="hospedagemObj.tipoDeQuarto && podeBuscar()">Buscar e adicionar colega de quarto</h3>
-      <div class="form-group" ng-if="hospedagemObj.tipoDeQuarto && podeBuscar()">
+      <h3 ng-if="podeBuscar()">Buscar e adicionar colega de quarto</h3>
+      <div class="form-group" ng-if="podeBuscar()">
         <p>Digite o SAP e clique na lupa para buscar</p>
         <div class="input-group">
           <input type="text" class="form-control" ng-model="roommateSap"
@@ -130,8 +130,11 @@
       tanto para você quanto para seus colegas de quarto.</div>
 
     <button type="submit" class="btn btn-primary" ng-disabled="submitDisabled(userForm)">Enviar</button>
+
+    <div ng-if="roommatesArray.length == 0" style="margin-top: 70px;">
     <h3>Caso não tenha um colega de quarto, clique no botão abaixo</h3>
     <p>A organização do evento fará a escolha por você.</p>
     <button type="button" class="btn btn-warning" ng-click="naoEscolher()">Não tenho um colega de quarto, por favor escolham por mim</button>
+    </div>
   </form>
 </div>
