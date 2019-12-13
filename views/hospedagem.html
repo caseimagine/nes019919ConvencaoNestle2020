@@ -14,7 +14,7 @@
   <div ng-if="naoQuerEscolher() && !reservasFeitas">
     <p><span>Faremos a escolha de colega de quarto por você.</span></p>
   </div>
-  <div ng-if="!temQuartosDisponiveis(hoteis)">
+  <div ng-if="!temQuartosDisponiveis(hoteis) && !ehSingle(rootScopeUsuario.Order) && !ehPassante(rootScopeUsuario.Order)">
     <p>Error 404 - NHd</p>
   </div>
 
