@@ -15,7 +15,7 @@
         </div>
 
         <div class="collapse navbar-collapse" id="menuprincipal">
-            <ul class="nav navbar-nav navbar-right"  ng-if="rootScopeUsuario.Status !== 0">
+            <ul class="nav navbar-nav navbar-right">
                 <!-- <li>
                     <a href="#!/conteudo">Conteúdo</a>
                 </li>
@@ -34,13 +34,6 @@
                 <li ng-if="rootScopeUsuario.TransporteDefinido === 'Voo'">
                     <a href="#!/upload">(4) Upload Passagem Aérea</a>
                 </li>
-                <li>
-                    <a href="" ng-click="logout()">
-                        <span class=' glyphicon glyphicon-log-out'></span>{{'Menu.Sair' | translate}}</a>
-                </li>
-
-            </ul>
-            <ul class="nav navbar-nav navbar-right"  ng-if="rootScopeUsuario.Status === 0">
                 <li>
                     <a href="" ng-click="logout()">
                         <span class=' glyphicon glyphicon-log-out'></span>{{'Menu.Sair' | translate}}</a>
